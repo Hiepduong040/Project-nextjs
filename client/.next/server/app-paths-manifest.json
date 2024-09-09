@@ -1,0 +1,5 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/managers/courses-management/page": "app/admin/managers/courses-management/page.js",
+  "/admin/managers/subject-management/page": "app/admin/managers/subject-management/page.js"
+}

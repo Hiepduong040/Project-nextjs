@@ -1,0 +1,219 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user1@gmail.com",
+      "role": 1,
+      "profilePicture": "https://picture.com/images/user1",
+      "status": 0
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user2@gmail.com",
+      "role": 0,
+      "profilePicture": "https://picture.com/images/user2",
+      "status": 1
+    },
+    {
+      "id": 3,
+      "username": "user3",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user3@gmail.com",
+      "role": 1,
+      "profilePicture": "https://picture.com/images/user3",
+      "status": 1
+    },
+    {
+      "id": 4,
+      "username": "user4",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user4@gmail.com",
+      "role": 0,
+      "profilePicture": "https://picture.com/images/user4",
+      "status": 0
+    },
+    {
+      "id": 5,
+      "username": "user5",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user5@gmail.com",
+      "role": 1,
+      "profilePicture": "https://picture.com/images/user5",
+      "status": 1
+    },
+    {
+      "id": 6,
+      "username": "user6",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user6@gmail.com",
+      "role": 0,
+      "profilePicture": "https://picture.com/images/user6",
+      "status": 0
+    },
+    {
+      "id": 7,
+      "username": "user7",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user7@gmail.com",
+      "role": 1,
+      "profilePicture": "https://picture.com/images/user7",
+      "status": 1
+    },
+    {
+      "id": 8,
+      "username": "user8",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user8@gmail.com",
+      "role": 0,
+      "profilePicture": "https://picture.com/images/user8",
+      "status": 0
+    },
+    {
+      "id": 9,
+      "username": "user9",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user9@gmail.com",
+      "role": 1,
+      "profilePicture": "https://picture.com/images/user9",
+      "status": 1
+    },
+    {
+      "id": 10,
+      "username": "user10",
+      "password": "MÃ HÓA BCRYP",
+      "email": "user10@gmail.com",
+      "role": 0,
+      "profilePicture": "https://picture.com/images/user10",
+      "status": 0
+    }
+  ],
+  "admin": [
+    {
+      "username": "admin1",
+      "password": "admin123",
+      "email": "admin123@gmail.com",
+      "profilePicture": "https://picture.com/images/admin1",
+      "status": 1
+    }
+  ],
+  "courses": [
+    {
+      "id": 1,
+      "title": "Khóa luyện thi đại học",
+      "description": "Khóa luyện thi cho học sinh chuẩn bị thi đại học"
+    },
+    {
+      "id": 2,
+      "title": "Khóa luyện thi THPT",
+      "description": "Khóa luyện thi cho học sinh 10,11,12"
+    },
+    {
+      "id": 3,
+      "title": "Khóa luyện thi trung học",
+      "description": "Khóa luyện thi cho học sinh chuẩn bị thi đại học"
+    },
+    {
+      "id": 4,
+      "title": "Khóa luyện thi tiểu học",
+      "description": "Khóa luyện thi cho học sinh 10,11,12"
+    },
+    {
+      "id": 5,
+      "title": "Khóa luyện thi mầm non",
+      "description": "Khóa luyện thi cho học sinh 10,11,12"
+    },
+    {
+      "title": "Khóa luyện thi IOE",
+      "description": "Luyện thi tiếng anh cho bậc học sinh tiểu học",
+      "numberOfQuestions": 11,
+      "id": 8
+    }
+  ],
+  "examSubjects": [
+    {
+      "title": "Môn toánn",
+      "description": "Luyện thi môn toán đại học",
+      "coursesId": 1,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Môn vật lý 11",
+      "description": "Luyện thi môn vật lý lớp 11",
+      "coursesId": 2
+    },
+    {
+      "id": 3,
+      "title": "Môn hóa lớp 10",
+      "description": "Luyện thi môn hóa lớp 10",
+      "coursesId": 2
+    }
+  ],
+  "exams": [
+    {
+      "id": 1,
+      "title": "Đề thi Toán học THPT Chuyên Lam Sơn Thanh Hóa",
+      "description": "Đề thi toán học năm 2023",
+      "duration": 90,
+      "examSubjectsId": 1
+    },
+    {
+      "id": 2,
+      "title": "Đề thi vật lý cơ bản lớp 11",
+      "description": "Đề thi gồm các câu hỏi cơ bản về vật lý 11",
+      "duration": 60,
+      "examSubjectsId": 2
+    },
+    {
+      "id": 3,
+      "title": "Đề thi hóa học cơ bản lớp 11",
+      "description": "Đề thi gồm các câu hỏi cơ bản về lớp 11",
+      "duration": 45,
+      "examSubjectsId": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "phương trình có nghiệm X =? X2-2X+1=0",
+      "examId": 1,
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "answer": "1"
+    },
+    {
+      "id": 2,
+      "question": "Định lý Pythagore áp dụng cho loại tam giác nào?",
+      "examId": 2,
+      "options": [
+        "Tam giác vuông",
+        "Tam giác đều",
+        "Tam giác cân",
+        "Tam giác thường"
+      ],
+      "answer": "Tam giác vuông"
+    }
+  ],
+  "userAnswers": [
+    {
+      "id": 1,
+      "userId": 1,
+      "exampId": 1,
+      "score": 15
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "exampId": 2,
+      "score": 8
+    }
+  ]
+}
