@@ -1,4 +1,5 @@
-"use client"
+// add task #12221, #12222, #12223, #12224
+"use client";
 import React, { useState, useEffect } from "react";
 import DefaultLayout from "../../../../components/Layouts/DefaultLayout";
 import TableCourses from "../../../../components/CoursesManager/TableCourses";
