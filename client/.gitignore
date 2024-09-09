@@ -1,10 +1,12 @@
 
 /node_modules
-client/components
-client/app/admin
-client/interfaces
-client/services
-client/node_modules
+/components/CoursesManager
+/components/SubjectManager
+/app/admin/managers
+
+/app/admin/users
+/interfaces
+/services
 
 /.pnp
 .pnp.js
