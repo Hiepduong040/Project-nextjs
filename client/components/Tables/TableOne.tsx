@@ -7,7 +7,7 @@ import ConfirmUserModal from "../Models/ConfirmUserModal";
 import InfoModal from "../Models/InfoModal";
 
 const API_URL = "http://localhost:8080";
-
+// table user
 export default function TableOne() {
   const [users, setUsers] = useState<User[]>([]);
   const [isModalOpen, setModalOpen] = useState(false);
