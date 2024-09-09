@@ -1,3 +1,4 @@
+// add task #12217, #12218, #12219, #12220
 "use client";
 import { useEffect, useState } from "react";
 import DefaultLayout from "../../../../components/Layouts/DefaultLayout";
@@ -79,13 +80,13 @@ export default function SubjectManager() {
         subjects={subjects}
         onEditSubject={handleEditSubject}
         onDeleteSubject={handleDeleteSubject}
-        courses={courses} 
+        courses={courses}
       />
       <AddSubject
         onSubjectAdded={handleSubjectAdded}
         editingSubject={editingSubject}
         onSubjectUpdated={handleSubjectUpdated}
-        courses={courses} 
+        courses={courses}
       />
     </DefaultLayout>
   );

@@ -1,3 +1,4 @@
+// add task #12217, #12218, #12219, #12220
 import { useState, useEffect } from "react";
 
 interface AddSubjectProps {
@@ -47,7 +48,7 @@ export default function AddSubject({
 
   const handleSubmit = () => {
     if (!title || !description || selectedCourseId === null) {
-      alert("Please fill in all fields.");
+      alert("Vui lòng điền vào tất cả các trường.");
       return;
     }
 

@@ -1,3 +1,4 @@
+// add task #12217, #12218, #12219, #12220
 import React from "react";
 
 // Define the props for TableSubject
@@ -55,7 +56,7 @@ export default function TableSubject({
               </button>
               <button
                 onClick={() => onDeleteSubject(subject.id)}
-                className="bg-yellow-500 rounded px-2 py-1 text-white"
+                className="rounded bg-yellow-500 px-2 py-1 text-white"
               >
                 Delete
               </button>
