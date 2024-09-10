@@ -393,8 +393,3 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
 export default Sidebar;
 
-// tutututuututututututut tutututu tutututuut
-// audtooo
-
-// dãoa
-//okok ctrz

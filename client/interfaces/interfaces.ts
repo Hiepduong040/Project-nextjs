@@ -21,13 +21,17 @@ export  interface ExamSubject {
   coursesId: number;
 }
 
-export  interface Exam {
+
+export interface Exam {
   id: number;
   title: string;
   description: string;
-  duration: number; 
+  duration: number;
   examSubjectsId: number;
+  active: boolean;  
 }
+
+
 
 export  interface Question {
   id: number;

@@ -1,5 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/admin/page": "app/admin/page.js",
   "/admin/managers/courses-management/page": "app/admin/managers/courses-management/page.js",
-  "/admin/managers/subject-management/page": "app/admin/managers/subject-management/page.js"
+  "/admin/managers/exam-management/page": "app/admin/managers/exam-management/page.js",
+  "/admin/managers/questions-management/page": "app/admin/managers/questions-management/page.js"
 }

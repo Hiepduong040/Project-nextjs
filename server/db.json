@@ -7,7 +7,7 @@
       "email": "user1@gmail.com",
       "role": 1,
       "profilePicture": "https://picture.com/images/user1",
-      "status": 0
+      "status": 1
     },
     {
       "id": 2,
@@ -141,39 +141,25 @@
       "id": 1
     },
     {
-      "id": 2,
-      "title": "Môn vật lý 11",
-      "description": "Luyện thi môn vật lý lớp 11",
-      "coursesId": 2
-    },
-    {
       "id": 3,
       "title": "Môn hóa lớp 10",
       "description": "Luyện thi môn hóa lớp 10",
       "coursesId": 2
+    },
+    {
+      "title": "Môn văn lớp 11",
+      "description": "Luyện thi xuất phát sớm đại học",
+      "coursesId": 1,
+      "id": 4
     }
   ],
   "exams": [
     {
-      "id": 1,
-      "title": "Đề thi Toán học THPT Chuyên Lam Sơn Thanh Hóa",
+      "title": "Đề thi Toán học THPT Chuyên Lam Sơn Thanh Hóaa",
       "description": "Đề thi toán học năm 2023",
-      "duration": 90,
-      "examSubjectsId": 1
-    },
-    {
-      "id": 2,
-      "title": "Đề thi vật lý cơ bản lớp 11",
-      "description": "Đề thi gồm các câu hỏi cơ bản về vật lý 11",
-      "duration": 60,
-      "examSubjectsId": 2
-    },
-    {
-      "id": 3,
-      "title": "Đề thi hóa học cơ bản lớp 11",
-      "description": "Đề thi gồm các câu hỏi cơ bản về lớp 11",
-      "duration": 45,
-      "examSubjectsId": 3
+      "duration": 91,
+      "examSubjectsId": 1,
+      "id": 1
     }
   ],
   "questions": [
@@ -190,16 +176,13 @@
       "answer": "1"
     },
     {
-      "id": 2,
-      "question": "Định lý Pythagore áp dụng cho loại tam giác nào?",
+      "question": "1+1",
       "examId": 2,
       "options": [
-        "Tam giác vuông",
-        "Tam giác đều",
-        "Tam giác cân",
-        "Tam giác thường"
+        ""
       ],
-      "answer": "Tam giác vuông"
+      "answer": "2",
+      "id": 2
     }
   ],
   "userAnswers": [

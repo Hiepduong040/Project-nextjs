@@ -1,17 +1,33 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import DefaultLayout from "../../../../components/Layouts/DefaultLayout";
-import { Metadata } from "next";
+import AddQuestion from "../../../../components/QuestionsManager/AddQuestion";
+import TableQuestions from "../../../../components/QuestionsManager/TableQuestion";
+import { Question } from "../../../../interfaces/interfaces"; // Import interface
 
-export const metadata: Metadata = {
-  title: "  question manager  ",
-  description:
-    "This is Next.js Form Elements page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
-};
-export default function page() {
+export default function QuestionsManager() {
+  const [refresh, setRefresh] = useState(false);
+  const [editQuestion, setEditQuestion] = useState<Question | undefined>(
+    undefined,
+  ); // Use undefined instead of null
+
+  const handleQuestionAdded = () => {
+    setRefresh(!refresh);
+    setEditQuestion(undefined); // Clear after add/update
+  };
+
+  const handleEdit = (question: Question) => {
+    setEditQuestion(question);
+  };
+
   return (
     <DefaultLayout>
-      <h1>questions Manager</h1>
-      
+      <h1 className="mb-6 text-xl font-semibold">Quản lý câu hỏi</h1>
+      <TableQuestions refresh={refresh} onEdit={handleEdit} />
+      <AddQuestion
+        onQuestionAdded={handleQuestionAdded}
+        editQuestion={editQuestion}
+      />
     </DefaultLayout>
   );
 }

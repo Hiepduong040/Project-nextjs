@@ -9,7 +9,7 @@ import CardDataStats from "../CardDataStats";
 import { getCourses } from "../../services/courses.service";
 import { getQuestions } from "../../services/question.service";
 import { getDataUser } from "../../services/user.service";
-import { getExams } from "../../services/subject.service"
+import { getExam } from "../../services/exam.service"
 
 const MapOne = dynamic(() => import("../Maps/MapOne"), {
   ssr: false,
@@ -31,7 +31,7 @@ export default function ECommerce() {
         const courses = await getCourses();
         const questions = await getQuestions();
         const users = await getDataUser();
-        const exams = await getExams();
+        const exams = await getExam();
 
         setCoursesTotal(courses.length);
         setQuestionsTotal(questions.length);

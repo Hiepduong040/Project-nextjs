@@ -1,39 +1,42 @@
 import React from "react";
+import { User } from "../../interfaces/interfaces";
 
 interface ConfirmUserModalProps {
+  onConfirm: () => Promise<void>;
+  onCancel: () => void;
   isOpen: boolean;
-  onClose: () => void;
-  onConfirm: () => void;
-  actionType: "lock" | "unlock";
+  action: "lock" | "unlock";
+  user: User | null;
 }
 
 export default function ConfirmUserModal({
-  isOpen,
-  onClose,
   onConfirm,
-  actionType,
+  onCancel,
+  isOpen,
+  action,
+  user,
 }: ConfirmUserModalProps) {
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return null;
+  }
 
   return (
-    <div className="bg-gray-600 fixed inset-0 flex items-center justify-center bg-opacity-50">
-      <div className="rounded-lg bg-white p-6 shadow-lg">
+    <div className="modal">
+      <div className="modal-content">
+        <h2>
+          {action === "lock"
+            ? "Confirm Lock Account"
+            : "Confirm Unlock Account"}
+        </h2>
         <p>
-          {actionType === "lock"
-            ? "Bạn có muốn khóa tài khoản này không?"
-            : "Bạn có muốn mở tài khoản này không?"}
+          Are you sure you want to {action === "lock" ? "lock" : "unlock"} this
+          account?
         </p>
-        <div className="mt-4 flex justify-end">
-          <button
-            onClick={onConfirm}
-            className="mr-2 rounded bg-green-500 px-4 py-2 text-white"
-          >
+        <div className="modal-actions">
+          <button onClick={onConfirm} className="btn-confirm">
             Yes
           </button>
-          <button
-            onClick={onClose}
-            className="bg-yellow-500 rounded px-4 py-2 text-white"
-          >
+          <button onClick={onCancel} className="btn-cancel">
             No
           </button>
         </div>
