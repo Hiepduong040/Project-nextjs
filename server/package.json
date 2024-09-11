@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "json-server": "^0.17.4"
+    "bcryptjs": "^2.4.3",
+    "json-server": "^1.0.0-beta.2"
   },
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "json-server --watch --port 8080 db.json"

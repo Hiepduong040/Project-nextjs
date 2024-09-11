@@ -25,3 +25,9 @@ export const deleteExam = async (id: number) => {
   const response = await axios.delete(`${API_URL}/exams/${id}`);
   return response.data;
 };
+
+// Get exams by subject
+export const getExamsBySubject = async (subjectId: string) => {
+  const response = await axios.get(`${API_URL}/exams/?subjectId=${subjectId}`);
+  return response.data;
+};

@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { updateExam } from "../../services/exam.service"; // Import API
-import { Exam } from "../../interfaces/interfaces";
-
-const API_URL = "http://localhost:8080";
+import React, { useEffect, useState } from "react";
+import { addExam, updateExam } from "../../services/exam.service"; // Services for add/update
+import { getSubject } from "../../services/subject.service"; // Service to fetch subjects
+import { Exam, ExamSubject } from "../../interfaces/interfaces"; // Assuming interfaces
 
 export default function AddExam({
   onExamAdded,
@@ -14,14 +12,25 @@ export default function AddExam({
 }) {
   const [title, setTitle] = useState(editExam?.title || "");
   const [description, setDescription] = useState(editExam?.description || "");
-  const [duration, setDuration] = useState<number | undefined>(
-    editExam?.duration,
+  const [duration, setDuration] = useState<number>(editExam?.duration || 0);
+  const [examSubjectsId, setExamSubjectsId] = useState<number | null>(
+    editExam?.examSubjectsId || null,
   );
-  const [examSubjectsId, setExamSubjectsId] = useState<number | undefined>(
-    editExam?.examSubjectsId,
-  );
+  const [subjects, setSubjects] = useState<ExamSubject[]>([]);
 
-  // If editExam changes, populate form fields
+  useEffect(() => {
+    const fetchSubjects = async () => {
+      try {
+        const response = await getSubject();
+        setSubjects(response);
+      } catch (error) {
+        console.error("Error fetching subjects", error);
+      }
+    };
+
+    fetchSubjects();
+  }, []);
+
   useEffect(() => {
     if (editExam) {
       setTitle(editExam.title);
@@ -33,79 +42,111 @@ export default function AddExam({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const examData = { title, description, duration, examSubjectsId };
+
+    if (!examSubjectsId) {
+      alert("Please select a subject.");
+      return;
+    }
+
+    const examData = {
+      title,
+      description,
+      duration,
+      examSubjectsId,
+    };
 
     try {
       if (editExam) {
-        await updateExam(editExam.id, examData); // Cập nhật đề thi
+        await updateExam(editExam.id, examData); // Update mode
+        alert("Exam updated successfully!");
       } else {
-        await axios.post(`${API_URL}/exams`, examData); // Thêm đề thi
+        await addExam(examData); // Add mode
+        alert("Exam added successfully!");
       }
-      onExamAdded(); // Gọi hàm refresh danh sách đề thi
-
-      // Sau khi thêm hoặc sửa xong, làm trống các trường input
+      onExamAdded(); // Refresh the list after adding/updating
       setTitle("");
       setDescription("");
-      setDuration(undefined);
-      setExamSubjectsId(undefined);
+      setDuration(0);
+      setExamSubjectsId(null);
     } catch (error) {
       console.error("Error submitting exam", error);
     }
   };
 
-
   return (
-    <form onSubmit={handleSubmit} className="rounded-md bg-white p-4 shadow-md">
+    <form onSubmit={handleSubmit} className="rounded bg-white p-4 shadow-md">
       <h2 className="mb-4 text-xl">
-        {editExam ? "Sửa đề thi" : "Thêm đề thi"}
+        {editExam ? "Sửa Đề Thi" : "Thêm Đề Thi"}
       </h2>
+
       <div className="mb-4">
-        <label className="mb-2 block">Tiêu đề</label>
+        <label htmlFor="title" className="block text-sm font-medium">
+          Tiêu đề
+        </label>
         <input
           type="text"
+          id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className="mt-1 w-full rounded border p-2"
           required
-          className="border-gray-300 w-full rounded border p-2"
         />
       </div>
 
       <div className="mb-4">
-        <label className="mb-2 block">Mô tả</label>
+        <label htmlFor="description" className="block text-sm font-medium">
+          Mô tả
+        </label>
         <textarea
+          id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          className="mt-1 w-full rounded border p-2"
           required
-          className="border-gray-300 w-full rounded border p-2"
         />
       </div>
 
       <div className="mb-4">
-        <label className="mb-2 block">Thời lượng (phút)</label>
+        <label htmlFor="duration" className="block text-sm font-medium">
+          Thời lượng (phút)
+        </label>
         <input
           type="number"
-          value={duration || ""}
-          onChange={(e) => setDuration(parseInt(e.target.value))}
+          id="duration"
+          value={duration}
+          onChange={(e) => setDuration(Number(e.target.value))}
+          className="mt-1 w-full rounded border p-2"
           required
-          className="border-gray-300 w-full rounded border p-2"
         />
       </div>
 
+      {/* Exam Subjects Dropdown */}
       <div className="mb-4">
-        <label className="mb-2 block">Mã môn thi</label>
-        <input
-          type="number"
-          value={examSubjectsId || ""}
-          onChange={(e) => setExamSubjectsId(parseInt(e.target.value))}
+        <label htmlFor="subject" className="block text-sm font-medium">
+          Môn thi
+        </label>
+        <select
+          id="subject"
+          value={examSubjectsId ?? ""}
+          onChange={(e) => setExamSubjectsId(Number(e.target.value))}
+          className="mt-1 w-full rounded border p-2"
           required
-          className="border-gray-300 w-full rounded border p-2"
-        />
+        >
+          <option value="">Chọn môn thi</option>
+          {subjects.map((subject) => (
+            <option key={subject.id} value={subject.id}>
+              {subject.title}
+            </option>
+          ))}
+        </select>
       </div>
+
+      {/* Submit Button */}
       <button
         type="submit"
         className="rounded bg-blue-500 px-4 py-2 text-white"
       >
-        {editExam ? "Cập nhật đề thi" : "Thêm đề thi"}
+        {editExam ? "Cập Nhật Đề Thi" : "Thêm Đề Thi"}
       </button>
     </form>
   );

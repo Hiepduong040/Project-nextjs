@@ -1,7 +1,6 @@
 {
-  "/page": "app/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/admin/managers/courses-management/page": "app/admin/managers/courses-management/page.js",
-  "/admin/managers/exam-management/page": "app/admin/managers/exam-management/page.js",
-  "/admin/managers/questions-management/page": "app/admin/managers/questions-management/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/user/auth/signup/page": "app/user/auth/signup/page.js",
+  "/user/auth/signin/page": "app/user/auth/signin/page.js",
+  "/page": "app/page.js"
 }

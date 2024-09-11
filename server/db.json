@@ -1,94 +1,34 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "user1",
-      "password": "MÃ HÓA BCRYP",
+      "password": "user123",
       "email": "user1@gmail.com",
       "role": 1,
       "profilePicture": "https://picture.com/images/user1",
       "status": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "user2",
-      "password": "MÃ HÓA BCRYP",
+      "password": "user123",
       "email": "user2@gmail.com",
       "role": 0,
       "profilePicture": "https://picture.com/images/user2",
       "status": 1
     },
     {
-      "id": 3,
-      "username": "user3",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user3@gmail.com",
-      "role": 1,
-      "profilePicture": "https://picture.com/images/user3",
-      "status": 1
+      "id": "f2aa",
+      "username": "123",
+      "email": "321",
+      "password": "11"
     },
     {
-      "id": 4,
-      "username": "user4",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user4@gmail.com",
-      "role": 0,
-      "profilePicture": "https://picture.com/images/user4",
-      "status": 0
-    },
-    {
-      "id": 5,
-      "username": "user5",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user5@gmail.com",
-      "role": 1,
-      "profilePicture": "https://picture.com/images/user5",
-      "status": 1
-    },
-    {
-      "id": 6,
-      "username": "user6",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user6@gmail.com",
-      "role": 0,
-      "profilePicture": "https://picture.com/images/user6",
-      "status": 0
-    },
-    {
-      "id": 7,
-      "username": "user7",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user7@gmail.com",
-      "role": 1,
-      "profilePicture": "https://picture.com/images/user7",
-      "status": 1
-    },
-    {
-      "id": 8,
-      "username": "user8",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user8@gmail.com",
-      "role": 0,
-      "profilePicture": "https://picture.com/images/user8",
-      "status": 0
-    },
-    {
-      "id": 9,
-      "username": "user9",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user9@gmail.com",
-      "role": 1,
-      "profilePicture": "https://picture.com/images/user9",
-      "status": 1
-    },
-    {
-      "id": 10,
-      "username": "user10",
-      "password": "MÃ HÓA BCRYP",
-      "email": "user10@gmail.com",
-      "role": 0,
-      "profilePicture": "https://picture.com/images/user10",
-      "status": 0
+      "id": "807d",
+      "username": "312",
+      "email": "321",
+      "password": "11"
     }
   ],
   "admin": [
@@ -97,32 +37,33 @@
       "password": "admin123",
       "email": "admin123@gmail.com",
       "profilePicture": "https://picture.com/images/admin1",
-      "status": 1
+      "status": 1,
+      "id": "c6d3"
     }
   ],
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Khóa luyện thi đại học",
       "description": "Khóa luyện thi cho học sinh chuẩn bị thi đại học"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Khóa luyện thi THPT",
       "description": "Khóa luyện thi cho học sinh 10,11,12"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Khóa luyện thi trung học",
       "description": "Khóa luyện thi cho học sinh chuẩn bị thi đại học"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Khóa luyện thi tiểu học",
       "description": "Khóa luyện thi cho học sinh 10,11,12"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Khóa luyện thi mầm non",
       "description": "Khóa luyện thi cho học sinh 10,11,12"
     },
@@ -130,7 +71,7 @@
       "title": "Khóa luyện thi IOE",
       "description": "Luyện thi tiếng anh cho bậc học sinh tiểu học",
       "numberOfQuestions": 11,
-      "id": 8
+      "id": "8"
     }
   ],
   "examSubjects": [
@@ -138,10 +79,10 @@
       "title": "Môn toánn",
       "description": "Luyện thi môn toán đại học",
       "coursesId": 1,
-      "id": 1
+      "id": "1"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Môn hóa lớp 10",
       "description": "Luyện thi môn hóa lớp 10",
       "coursesId": 2
@@ -150,7 +91,7 @@
       "title": "Môn văn lớp 11",
       "description": "Luyện thi xuất phát sớm đại học",
       "coursesId": 1,
-      "id": 4
+      "id": "4"
     }
   ],
   "exams": [
@@ -159,41 +100,53 @@
       "description": "Đề thi toán học năm 2023",
       "duration": 91,
       "examSubjectsId": 1,
-      "id": 1
+      "id": "1"
+    },
+    {
+      "title": "123",
+      "description": "1235",
+      "duration": 123,
+      "examSubjectsId": 4,
+      "id": "2"
+    },
+    {
+      "title": "23",
+      "description": "56",
+      "duration": 56,
+      "examSubjectsId": 3,
+      "id": "3"
+    },
+    {
+      "title": "98",
+      "description": "89\n",
+      "duration": 48,
+      "examSubjectsId": 4,
+      "id": "4"
     }
   ],
   "questions": [
     {
-      "id": 1,
-      "question": "phương trình có nghiệm X =? X2-2X+1=0",
+      "question": "phương trình có nghiệm X =? X2-2X+1=00",
       "examId": 1,
       "options": [
         "0",
         "1",
         "2",
-        "3"
+        "5"
       ],
-      "answer": "1"
-    },
-    {
-      "question": "1+1",
-      "examId": 2,
-      "options": [
-        ""
-      ],
-      "answer": "2",
-      "id": 2
+      "answer": "1",
+      "id": "1"
     }
   ],
   "userAnswers": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "exampId": 1,
       "score": 15
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 2,
       "exampId": 2,
       "score": 8

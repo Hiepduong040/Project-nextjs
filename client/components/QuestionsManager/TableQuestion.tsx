@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getQuestions, deleteQuestion } from "../../services/question.service";
-import { Question } from "../../interfaces/interfaces";
+import { deleteQuestion, getQuestions } from "../../services/question.service"; // Update path as needed
+import { getExams } from "../../services/exam.service"; // Assuming this service exists
+import { Question } from "../../interfaces/interfaces"; // Import the Question interface
 
 interface TableQuestionsProps {
   refresh: boolean;
-  onEdit: (question: Question) => void;
+  onEdit: (question: Question) => void; // Prop to trigger edit
 }
 
 export default function TableQuestions({
@@ -12,23 +13,39 @@ export default function TableQuestions({
   onEdit,
 }: TableQuestionsProps) {
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [exams, setExams] = useState<{ [id: number]: string }>({}); // {examId: title}
 
   useEffect(() => {
-    const fetchQuestions = async () => {
+    const fetchData = async () => {
       try {
-        const data = await getQuestions();
-        setQuestions(data);
+        // Fetch questions
+        const questionsResponse = await getQuestions();
+        setQuestions(questionsResponse);
+
+        // Fetch Tùy chọn
+        const examsResponse = await getExams();
+        // Create a mapping of examId to exam title
+        const examMap = examsResponse.reduce(
+          (acc: { [id: number]: string }, exam:any  ) => {
+            acc[exam.id] = exam.title;
+            return acc;
+          },
+          {},
+        );
+        setExams(examMap);
       } catch (error) {
-        console.error("Error fetching questions", error);
+        console.error("Error fetching data", error);
       }
     };
-    fetchQuestions();
+
+    fetchData();
   }, [refresh]);
 
   const handleDelete = async (id: number) => {
     try {
       await deleteQuestion(id);
-      setQuestions(questions.filter((question) => question.id !== id));
+      alert("Question deleted successfully!");
+      setQuestions(questions.filter((q) => q.id !== id));
     } catch (error) {
       console.error("Error deleting question", error);
     }
@@ -42,8 +59,10 @@ export default function TableQuestions({
           <tr>
             <th className="border-b py-2">ID</th>
             <th className="border-b py-2">Câu hỏi</th>
-            <th className="border-b py-2">Đáp án</th>
-            <th className="border-b py-2">Mã đề thi</th>
+            <th className="border-b py-2">Đề thi</th>{" "}
+            {/* Updated column for exam title */}
+            <th className="border-b py-2">Các đáp án</th>
+            <th className="border-b py-2">Đáp án đúng</th>
             <th className="border-b py-2">Hành động</th>
           </tr>
         </thead>
@@ -51,9 +70,15 @@ export default function TableQuestions({
           {questions.map((question) => (
             <tr key={question.id}>
               <td className="border-b py-2 text-center">{question.id}</td>
-              <td className="border-b py-2">{question.question}</td>
-              <td className="border-b py-2">{question.answer}</td>
-              <td className="border-b py-2 text-center">{question.examId}</td>
+              <td className="border-b py-2 text-center">{question.question}</td>
+              <td className="border-b py-2 text-center">
+                {exams[question.examId] || "Unknown Exam"}{" "}
+                {/* Display exam title */}
+              </td>
+              <td className="border-b py-2 text-center">
+                {question.options.join(", ")}
+              </td>
+              <td className="border-b py-2 text-center">{question.answer}</td>
               <td className="border-b py-2 text-center">
                 <button
                   className="mr-2 rounded bg-blue-500 px-4 py-1 text-white"
@@ -62,7 +87,7 @@ export default function TableQuestions({
                   Sửa
                 </button>
                 <button
-                  className="bg-yellow-500 rounded px-4 py-1 text-white"
+                  className="rounded bg-yellow-500 px-4 py-1 text-white"
                   onClick={() => handleDelete(question.id)}
                 >
                   Xóa

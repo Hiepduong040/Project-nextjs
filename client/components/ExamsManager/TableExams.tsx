@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { deleteExam, getExams } from "../../services/exam.service"; // Assuming correct path
+import { getSubject } from "../../services/subject.service"; // Service to fetch examSubjects
 import { Exam } from "../../interfaces/interfaces"; // Update the correct path
+
+interface ExamSubject {
+  id: number;
+  title: string;
+}
 
 interface TableExamsProps {
   refresh: boolean;
@@ -9,21 +15,23 @@ interface TableExamsProps {
 
 export default function TableExams({ refresh, onEdit }: TableExamsProps) {
   const [exams, setExams] = useState<Exam[]>([]);
+  const [subjects, setSubjects] = useState<ExamSubject[]>([]); // State to hold the subjects
 
   useEffect(() => {
-    const fetchExams = async () => {
+    const fetchExamsAndSubjects = async () => {
       try {
-        const response = await getExams();
-        setExams(response);
+        const examsResponse = await getExams();
+        const subjectsResponse = await getSubject(); // Fetch subjects from API
+        setExams(examsResponse);
+        setSubjects(subjectsResponse);
       } catch (error) {
-        console.error("Error fetching exams", error);
+        console.error("Error fetching exams or subjects", error);
       }
     };
 
-    fetchExams();
+    fetchExamsAndSubjects();
   }, [refresh]);
 
-  // Handle delete
   // Handle delete
   const handleDelete = async (id: number) => {
     try {
@@ -37,6 +45,12 @@ export default function TableExams({ refresh, onEdit }: TableExamsProps) {
     }
   };
 
+  // Helper function to get subject title by examSubjectsId
+  const getSubjectTitle = (examSubjectsId: number): string => {
+    const subject = subjects.find((subject) => subject.id === examSubjectsId);
+    return subject ? subject.title : "Môn học không xác định";
+  };
+
   return (
     <div className="rounded-md bg-white p-4 shadow-md">
       <h2 className="mb-4 text-xl">Danh sách đề thi</h2>
@@ -47,7 +61,8 @@ export default function TableExams({ refresh, onEdit }: TableExamsProps) {
             <th className="border-b py-2">Tiêu đề</th>
             <th className="border-b py-2">Mô tả</th>
             <th className="border-b py-2">Thời lượng (phút)</th>
-            <th className="border-b py-2">Mã môn thi</th>
+            <th className="border-b py-2">Môn thi</th>{" "}
+            {/* Changed from Mã môn thi */}
             <th className="border-b py-2">Hành động</th>
           </tr>
         </thead>
@@ -59,7 +74,8 @@ export default function TableExams({ refresh, onEdit }: TableExamsProps) {
               <td className="border-b py-2">{exam.description}</td>
               <td className="border-b py-2 text-center">{exam.duration}</td>
               <td className="border-b py-2 text-center">
-                {exam.examSubjectsId}
+                {getSubjectTitle(exam.examSubjectsId)}{" "}
+                {/* Display subject title */}
               </td>
               <td className="border-b py-2 text-center">
                 <button

@@ -1,35 +1,30 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/admin/page": [
+    "/user/auth/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/page.js"
+      "static/chunks/app/user/auth/signup/page.js"
     ],
-    "/admin/managers/courses-management/page": [
+    "/user/auth/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/managers/courses-management/page.js"
+      "static/chunks/app/user/auth/signin/page.js"
     ],
-    "/admin/managers/exam-management/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/managers/exam-management/page.js"
+      "static/chunks/app/page.js"
     ],
-    "/admin/managers/questions-management/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/admin/managers/questions-management/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

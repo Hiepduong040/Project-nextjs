@@ -14,3 +14,4 @@ export const getDataUser = async (searchTerm: string = "") => {
     throw error;
   }
 };
+

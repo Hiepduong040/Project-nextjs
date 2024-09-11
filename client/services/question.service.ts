@@ -26,3 +26,16 @@ export const deleteQuestion = async (id: number) => {
   const response = await axios.delete(`${API_URL}/questions/${id}`);
   return response.data;
 };
+
+
+// Get questions by exam
+export const getQuestionsByExam = async (examId: string) => {
+  const response = await axios.get(`${API_URL}/questions/?examId=${examId}`);
+  return response.data;
+};
+
+// Get question by ID
+export const getQuestionById = async (questionId: string) => {
+  const response = await axios.get(`${API_URL}/questions/${questionId}`);
+  return response.data;
+};
